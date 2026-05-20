@@ -45,8 +45,9 @@ that loads TPM (or reload the config after changing).
 |---|---|---|
 | `@highlight-key` | `H` | Prefix key that opens the color menu. |
 | `@highlight-colors` | `green cyan yellow magenta red blue white` | Space-separated palette. Each color's first letter becomes its menu shortcut. |
-| `@highlight-inactive-fg` | `colour240` | Border color for untagged inactive panes. |
-| `@highlight-active-fg` | `colour250` | Border color for untagged active panes. |
+| `@highlight-borders` | `on` | When `on`, the plugin sets `pane-border-style` to color borders by `@highlight`. Set to `off` to leave borders alone (e.g. if you signal highlights via `pane-border-status` instead). |
+| `@highlight-inactive-fg` | `colour240` | Border color for untagged inactive panes (ignored when `@highlight-borders` is `off`). |
+| `@highlight-active-fg` | `colour250` | Border color for untagged active panes (ignored when `@highlight-borders` is `off`). |
 
 Example:
 

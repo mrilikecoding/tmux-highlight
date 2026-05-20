@@ -15,12 +15,15 @@ get_tmux_option() {
 }
 
 KEY=$(get_tmux_option "@highlight-key" "H")
+BORDERS=$(get_tmux_option "@highlight-borders" "on")
 INACTIVE_FG=$(get_tmux_option "@highlight-inactive-fg" "colour240")
 ACTIVE_FG=$(get_tmux_option "@highlight-active-fg" "colour250")
 COLORS=$(get_tmux_option "@highlight-colors" "green cyan yellow magenta red blue white")
 
-tmux set-option -g pane-border-style        "#{?@highlight,fg=#{@highlight},fg=$INACTIVE_FG}"
-tmux set-option -g pane-active-border-style "#{?@highlight,fg=#{@highlight},fg=$ACTIVE_FG}"
+if [ "$BORDERS" = "on" ]; then
+    tmux set-option -g pane-border-style        "#{?@highlight,fg=#{@highlight},fg=$INACTIVE_FG}"
+    tmux set-option -g pane-active-border-style "#{?@highlight,fg=#{@highlight},fg=$ACTIVE_FG}"
+fi
 
 menu_args=()
 for color in $COLORS; do
